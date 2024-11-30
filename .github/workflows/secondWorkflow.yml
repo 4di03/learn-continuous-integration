@@ -14,4 +14,4 @@ jobs:
         run: npm install
 
       - name: Setup Sample Database
-        run: npx ts-node remove_db.ts && npx ts-node insert_sample_data.ts
+        run: npx ts-node remove_db.ts 'mongodb://127.0.0.1:27017/fake_so' && npx ts-node insert_sample_data.ts 'mongodb://127.0.0.1:27017/fake_so'
