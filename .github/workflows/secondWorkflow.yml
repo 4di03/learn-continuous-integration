@@ -1,0 +1,17 @@
+name: Database Setup
+on:
+  push:
+    branches:
+      - deploy
+jobs:
+  "setup-database":
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Setup Sample Database
+        run: npx ts-node remove_db.ts && npx ts-node insert_sample_data.ts
